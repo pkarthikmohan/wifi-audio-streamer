@@ -1,46 +1,54 @@
-# Wifi Audio Streamer (Android)
+# Hybrid Wi-Fi Audio Streamer (Android)
 
-An Android application that captures audio and streams it in real-time over local Wi-Fi to multiple listener devices using WebRTC and Opus.
+A high-performance Android application that streams high-quality audio (Movies, Games, Music) in real-time over local Wi-Fi to other Android devices and Web Browsers.
 
-## Features
-- **Host Mode**: Captures audio and acts as a signaling server.
-- **Listener Mode**: Connects to the host and plays received audio.
-- **Low Latency**: Uses WebRTC (UDP/TCP) with Opus codec.
-- **Local Wi-Fi**: No internet server required; uses direct P2P connection signaled over local TCP.
+## Key Features
+- **Zero-Lag Android Streaming**: Uses a custom **Raw TCP** socket protocol (~44.1kHz 16-bit PCM) for ultra-low latency playback on the Android "Listener" app.
+- **Browser Compatibility**: Parallel **HTTP Server** that keeps a connection open, streaming infinite WAV audio to any web browser (Chrome, Firefox, Safari) without installing an app.
+- **Internal System Audio**: Capture internal device audio (requires Android 10+ and Permission) for streaming movies and games.
+- **Microphone Support**: Fallback to microphone capture for voice or external sounds.
+- **Local Wi-Fi Only**: Fully offline; no internet or external servers required.
+
+## How It Works
+The "Host" device runs two parallel servers:
+1.  **Port 50005 (Raw TCP)**: Optimized for the Android client app. No buffering, raw PCM data.
+2.  **Port 8080 (HTTP)**: Serves a standard WAV header followed by a continuous stream of PCM bytes. Works with `<audio>` tags in browsers.
+
+## Usages
+1.  **Silent Movie Night**: Stream your TV/Tablet audio to your phone + headphones so you don't wake the house.
+2.  **Multi-Room Music**: Turn old phones into wireless speakers.
+3.  **PC/Console Audio**: Use an Android device to capture audio from a specific source.
 
 ## Setup Instructions
 
 ### Prerequisites
 - Android Studio Hedgehog or newer.
 - Android SDK API 34.
-- Two Android devices connected to the **same Wi-Fi network**.
+- Two Android devices OR one Android device + a PC/Laptop on the **same Wi-Fi network**.
 
 ### Building
-1. Open the project in Android Studio.
-2. Sync Gradle files.
-3. Keep the default configuration or update `minSdk` in `app/build.gradle.kts` if needed (Default: 29).
+1.  Open the project in Android Studio.
+2.  Sync Gradle files.
+3.  Build and Run on your device.
 
-### Usage
-1. **Device A (Host)**:
-   - Select "Host" mode.
-   - Grant Microphone and Network permissions.
-   - Note the **Local IP** displayed on the screen.
-   - Click **Start Streaming**.
-   - *Note: In this prototype, audio is captured via the Microphone. Place the device near the audio source.*
+## Operating Instructions
 
-2. **Device B (Listener)**:
-   - Select "Listener" mode.
-   - Enter the **Host IP** from Device A.
-   - Click **Connect**.
-   - The status log should show "Connected" -> "Received Offer" -> "Received Audio Stream".
+### Host Mode (The Streamer)
+1.  Open the app and grant Microphone/Notification permissions.
+2.  Toggle **"Source: Internal Audio"** if you want to stream system sound (e.g., YouTube, Netflix).
+3.  Tap **"Start Host"**.
+4.  Note the **IP Address** displayed on the screen (e.g., `192.168.1.50`).
 
-## Architecture Details
-- **Signaling**: Implemented as a simple TCP Socket server running on the Host (Port 8080).
-- **WebRTC**: Uses `google-webrtc` library.
-- **Audio Capture**: 
-  - Simply uses `JavaAudioDeviceModule` (Microphone source) for broad compatibility.
-  - *Advanced:* To capture internal system audio (Android 10+), the app uses the `FOREGROUND_SERVICE_MEDIA_PROJECTION` permission. A full implementation would require passing a `MediaProjection` token to a custom `AudioRecord` implementation fed into WebRTC.
+### Listener Mode (Android App)
+1.  Open the app on a second device.
+2.  Enter the Host's IP Address.
+3.  Tap **"Start Listener"**.
 
-## Troubleshooting
-- **No Audio?** Check volume on the Listener device. Ensure Host permissions are granted.
-- **Connection Failed?** Ensure both devices are on the SAME Wi-Fi subnet. Some corporate/public Wi-Fi networks block P2P traffic.
+### Listener Mode (Web Browser)
+1.  Open a web browser on any device (Laptop, iPhone, Smart TV).
+2.  Navigate to `http://<HOST_IP>:8080` (e.g., `http://192.168.1.50:8080`).
+3.  Audio will start playing automatically.
+
+## Requirements
+- **Internal Audio**: Requires Android 10 (API 29) or higher.
+- **Network**: 5GHz Wi-Fi is highly recommended for minimal latency.
