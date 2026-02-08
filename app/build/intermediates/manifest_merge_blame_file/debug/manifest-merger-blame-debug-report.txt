@@ -1,0 +1,177 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.wifiaudiostreamer"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="29"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:7:5-76
+13-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:7:22-73
+14    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+14-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:8:5-71
+14-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:8:22-68
+15    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+15-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:9:5-80
+15-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:9:22-77
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:10:5-65
+16-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:10:22-62
+17    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+17-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:11:5-79
+17-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:11:22-76
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:12:5-81
+18-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:12:22-78
+19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+19-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:13:5-77
+19-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:13:22-74
+20    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+20-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:14:5-94
+20-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:14:22-91
+21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+21-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:15:5-88
+21-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:15:22-85
+22    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+22-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:16:5-77
+22-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:16:22-74
+23
+24    <permission
+24-->[androidx.core:core:1.12.0] C:\Users\Admin\.gradle\caches\8.12\transforms\9e88ab2797022a6b6e751c5f1866beb3\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+25        android:name="com.example.wifiaudiostreamer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25-->[androidx.core:core:1.12.0] C:\Users\Admin\.gradle\caches\8.12\transforms\9e88ab2797022a6b6e751c5f1866beb3\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+26        android:protectionLevel="signature" />
+26-->[androidx.core:core:1.12.0] C:\Users\Admin\.gradle\caches\8.12\transforms\9e88ab2797022a6b6e751c5f1866beb3\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+27
+28    <uses-permission android:name="com.example.wifiaudiostreamer.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28-->[androidx.core:core:1.12.0] C:\Users\Admin\.gradle\caches\8.12\transforms\9e88ab2797022a6b6e751c5f1866beb3\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+28-->[androidx.core:core:1.12.0] C:\Users\Admin\.gradle\caches\8.12\transforms\9e88ab2797022a6b6e751c5f1866beb3\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+29
+30    <application
+30-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:18:5-44:19
+31        android:allowBackup="true"
+31-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:19:9-35
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.12.0] C:\Users\Admin\.gradle\caches\8.12\transforms\9e88ab2797022a6b6e751c5f1866beb3\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+33        android:dataExtractionRules="@xml/data_extraction_rules"
+33-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:20:9-65
+34        android:debuggable="true"
+35        android:extractNativeLibs="false"
+36        android:fullBackupContent="@xml/backup_rules"
+36-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:21:9-54
+37        android:icon="@drawable/ic_launcher"
+37-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:22:9-45
+38        android:label="@string/app_name"
+38-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:23:9-41
+39        android:supportsRtl="true"
+39-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:24:9-35
+40        android:theme="@style/Theme.WifiAudioStreamer"
+40-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:25:9-55
+41        android:usesCleartextTraffic="true" >
+41-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:26:9-44
+42        <activity
+42-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:29:9-36:20
+43            android:name="com.example.wifiaudiostreamer.MainActivity"
+43-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:30:13-41
+44            android:exported="true" >
+44-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:31:13-36
+45            <intent-filter>
+45-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:32:13-35:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:33:17-69
+46-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:33:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:34:17-77
+48-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:34:27-74
+49            </intent-filter>
+50        </activity>
+51
+52        <service
+52-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:38:9-42:39
+53            android:name="com.example.wifiaudiostreamer.AudioCaptureService"
+53-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:39:13-48
+54            android:enabled="true"
+54-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:41:13-35
+55            android:exported="false"
+55-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:42:13-37
+56            android:foregroundServiceType="mediaProjection|microphone" />
+56-->D:\wifi_audio_streamer\app\src\main\AndroidManifest.xml:40:13-71
+57
+58        <provider
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\8.12\transforms\61de96d5f11c32a7883370582d2f0836\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+59            android:name="androidx.startup.InitializationProvider"
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\8.12\transforms\61de96d5f11c32a7883370582d2f0836\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+60            android:authorities="com.example.wifiaudiostreamer.androidx-startup"
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\8.12\transforms\61de96d5f11c32a7883370582d2f0836\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+61            android:exported="false" >
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\8.12\transforms\61de96d5f11c32a7883370582d2f0836\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+62            <meta-data
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\8.12\transforms\61de96d5f11c32a7883370582d2f0836\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+63                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\8.12\transforms\61de96d5f11c32a7883370582d2f0836\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+64                android:value="androidx.startup" />
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Admin\.gradle\caches\8.12\transforms\61de96d5f11c32a7883370582d2f0836\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+65            <meta-data
+65-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Admin\.gradle\caches\8.12\transforms\e82d86a959ae8cadfc88d0a1d86086b2\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+66-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Admin\.gradle\caches\8.12\transforms\e82d86a959ae8cadfc88d0a1d86086b2\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+67                android:value="androidx.startup" />
+67-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Admin\.gradle\caches\8.12\transforms\e82d86a959ae8cadfc88d0a1d86086b2\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+68            <meta-data
+68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+70                android:value="androidx.startup" />
+70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+71        </provider>
+72
+73        <receiver
+73-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+74            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+75            android:directBootAware="false"
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+76            android:enabled="true"
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+77            android:exported="true"
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+78            android:permission="android.permission.DUMP" >
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+79            <intent-filter>
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+80                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+81            </intent-filter>
+82            <intent-filter>
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+83                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+84            </intent-filter>
+85            <intent-filter>
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+86                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+87            </intent-filter>
+88            <intent-filter>
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+89                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Admin\.gradle\caches\8.12\transforms\15689ebce3bad9ff8113d014f05593d9\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+90            </intent-filter>
+91        </receiver>
+92    </application>
+93
+94</manifest>

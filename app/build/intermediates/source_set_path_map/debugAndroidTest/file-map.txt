@@ -1,0 +1,4 @@
+com.example.wifiaudiostreamer.test.app-androidTest-0 D:\wifi_audio_streamer\app\build\generated\res\resValues\androidTest\debug
+com.example.wifiaudiostreamer.test.app-mergeDebugAndroidTestResources-1 D:\wifi_audio_streamer\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.wifiaudiostreamer.test.app-mergeDebugAndroidTestResources-2 D:\wifi_audio_streamer\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.wifiaudiostreamer.test.app-merged_res-3 D:\wifi_audio_streamer\app\build\intermediates\merged_res\debugAndroidTest

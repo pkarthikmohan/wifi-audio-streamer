@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wifi Audio Streamer</string>
+    <string name="mode_host">Host (Send Audio)</string>
+    <string name="mode_listener">Listener (Receive Audio)</string>
+    <string name="host_ip_hint">Host IP Address</string>
+    <string name="start_streaming">Start Streaming</string>
+    <string name="stop_streaming">Stop Streaming</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="status_default">Status: Idle</string>
+</resources>

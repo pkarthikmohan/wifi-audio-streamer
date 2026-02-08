@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.wifiaudiostreamer.app-mergeDebugResources-30:/layout/activity_main.xml",
+        "source": "com.example.wifiaudiostreamer.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.12\\com.example.wifiaudiostreamer.app-mergeDebugResources-30:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.12\\com.example.wifiaudiostreamer.app-main-33:\\layout\\activity_main.xml"
+    }
+]
