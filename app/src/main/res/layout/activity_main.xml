@@ -1,83 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:orientation="vertical"
+    android:background="@color/bg_dark"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <!-- ════════════════════════════════════════════════════ -->
+    <!--  HEADER (fixed, not scrollable)                     -->
+    <!-- ════════════════════════════════════════════════════ -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Wifi Audio Streamer"
-            app:titleCentered="true"
-            android:background="@color/primaryContainer"
-            app:titleTextColor="@color/onPrimaryContainer"/>
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_header"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
-    <androidx.core.widget.NestedScrollView
+        <!-- App title + subtitle -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WIFI AUDIO STREAMER"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Local network streaming"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- LIVE indicator (visible only when streaming) -->
+        <LinearLayout
+            android:id="@+id/liveIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="20dp"
+                android:layout_height="20dp">
+
+                <!-- Outer pulse ring -->
+                <View
+                    android:id="@+id/viewPulseRing"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_dot_pulse"/>
+
+                <!-- Inner solid dot -->
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_dot_green"/>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIVE"
+                android:textColor="@color/accent_green"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginStart="6dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!--  SCROLLABLE CONTENT                                 -->
+    <!-- ════════════════════════════════════════════════════ -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp"
-            android:clipToPadding="false">
+            android:padding="16dp">
 
-            <com.google.android.material.card.MaterialCardView
+            <!-- ── Mode Toggle ─────────────────────────── -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="?attr/materialCardViewFilledStyle"
-                app:cardBackgroundColor="@color/surfaceVariant"
-                android:layout_marginBottom="24dp">
-                
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_card"
+                android:padding="4dp"
+                android:layout_marginBottom="16dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Select Mode"
-                        android:textAppearance="?attr/textAppearanceTitleMedium"
-                        android:layout_marginBottom="8dp"/>
+                <Button
+                    android:id="@+id/btnModeHost"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_btn_primary"
+                    android:text="HOST"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:stateListAnimator="@null"
+                    android:elevation="0dp"/>
 
-                    <RadioGroup
-                        android:id="@+id/modeRadioGroup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                <Button
+                    android:id="@+id/btnModeListener"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:text="LISTENER"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:stateListAnimator="@null"
+                    android:elevation="0dp"/>
+            </LinearLayout>
 
-                        <RadioButton
-                            android:id="@+id/rbHost"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mode_host"
-                            android:checked="true"/>
-
-                        <RadioButton
-                            android:id="@+id/rbListener"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mode_listener"/>
-                    </RadioGroup>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- HOST LAYOUT -->
+            <!-- ════════════════════════════════════════════ -->
+            <!--  HOST LAYOUT                                 -->
+            <!-- ════════════════════════════════════════════ -->
             <LinearLayout
                 android:id="@+id/hostInfoLayout"
                 android:layout_width="match_parent"
@@ -85,57 +152,157 @@
                 android:orientation="vertical"
                 android:animateLayoutChanges="true">
 
-                <com.google.android.material.materialswitch.MaterialSwitch
-                     android:id="@+id/switchInternalAudio"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Stream System Audio (Requires Screen Perm)"
-                     android:checked="true"
-                     android:layout_marginBottom="12dp"/>
-
-                <com.google.android.material.card.MaterialCardView
+                <!-- Audio Source Card -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="?attr/materialCardViewOutlinedStyle"
-                    android:layout_marginBottom="16dp">
-                    
+                    android:background="@drawable/bg_card"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AUDIO SOURCE"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:letterSpacing="0.12"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="System Audio"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchInternalAudio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"/>
+                </LinearLayout>
+
+                <!-- IP Address Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_ip_card"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HOST IP ADDRESS"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:letterSpacing="0.12"/>
+
+                    <TextView
+                        android:id="@+id/tvLocalIp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Detecting…"
+                        android:textColor="@color/accent_cyan"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp"/>
+
+                    <!-- Copy button row -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
 
-                        <TextView
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCopyIp"
+                            style="@style/Widget.Material3.Button.TextButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Your IP Address"
-                            android:textAppearance="?attr/textAppearanceLabelMedium"
-                            android:alpha="0.7"/>
-                        
-                        <TextView
-                            android:id="@+id/tvLocalIp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Checking..."
-                            android:textAppearance="?attr/textAppearanceHeadlineMedium"
-                            android:textStyle="bold"
-                            android:layout_marginTop="4dp"
-                            android:textColor="@color/primary"/>
+                            android:text="COPY IP"
+                            android:textColor="@color/accent_purple"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.08"
+                            android:padding="0dp"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"/>
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-                
+                </LinearLayout>
+
+                <!-- QR Code Card (hidden until IP detected) -->
+                <LinearLayout
+                    android:id="@+id/cardQrCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📱  Scan to open in browser"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="12dp"/>
+
+                    <ImageView
+                        android:id="@+id/ivQrCode"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:contentDescription="QR code for browser"
+                        android:background="@color/white"
+                        android:padding="4dp"/>
+                </LinearLayout>
+
+                <!-- Start/Stop Button -->
                 <Button
                     android:id="@+id/btnStartHost"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:text="@string/start_streaming"
-                    app:icon="@drawable/ic_launcher"
-                    android:textSize="16sp"/>
+                    android:background="@drawable/bg_btn_primary"
+                    android:text="START STREAMING"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:layout_marginBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:elevation="0dp"/>
+
+                <!-- Client count -->
+                <TextView
+                    android:id="@+id/tvClientCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 clients connected"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
-            <!-- LISTENER LAYOUT -->
+            <!-- ════════════════════════════════════════════ -->
+            <!--  LISTENER LAYOUT                             -->
+            <!-- ════════════════════════════════════════════ -->
             <LinearLayout
                 android:id="@+id/listenerInputLayout"
                 android:layout_width="match_parent"
@@ -148,59 +315,156 @@
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/host_ip_hint"
-                    app:startIconDrawable="@drawable/ic_launcher"
+                    android:hint="Host IP Address (e.g. 192.168.1.50)"
+                    app:helperText="Enter IP address ONLY (no port or ':')"
+                    app:helperTextEnabled="true"
                     android:layout_marginBottom="16dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etHostIp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="numberDecimal|text" 
-                        android:maxLines="1"/>
+                        android:inputType="numberDecimal"
+                        android:digits="0123456789."
+                        android:maxLines="1"
+                        android:textColor="@color/text_primary"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/btnConnect"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:text="@string/connect"
-                    android:textSize="16sp"/>
-            </LinearLayout>
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status Log"
-                android:textAppearance="?attr/textAppearanceTitleSmall"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"/>
+                    android:background="@drawable/bg_btn_primary"
+                    android:text="CONNECT"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:layout_marginBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:elevation="0dp"/>
 
-            <com.google.android.material.card.MaterialCardView
+            </LinearLayout>
+
+            <!-- ── Status / System Log ─────────────────── -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="?attr/materialCardViewFilledStyle"
-                app:cardBackgroundColor="@color/surface"
-                app:strokeColor="@color/surfaceVariant"
-                app:strokeWidth="1dp">
-                
+                android:background="@drawable/bg_terminal"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginTop="8dp">
+
+                <!-- Log header row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/shape_dot_green"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SYSTEM LOG"
+                        android:textColor="@color/accent_green"
+                        android:textSize="11sp"
+                        android:fontFamily="monospace"
+                        android:letterSpacing="0.12"/>
+                </LinearLayout>
+
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:padding="8dp">
+                    android:layout_height="130dp">
 
                     <TextView
                         android:id="@+id/tvStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/status_default"
+                        android:text="Status: Idle"
+                        android:textColor="@color/accent_green"
                         android:fontFamily="monospace"
                         android:textSize="12sp"
-                        android:alpha="0.8"/>
+                        android:alpha="0.85"/>
                 </ScrollView>
-            </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- ── Footer: Version & GitHub Support ─── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="v1.0.0 • WiFi Audio Streamer"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:alpha="0.75"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/btnFooterStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⭐ Star on GitHub"
+                        android:textColor="@color/accent_purple"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:padding="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" • "
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:alpha="0.5"/>
+
+                    <TextView
+                        android:id="@+id/btnFooterIssue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Report an Issue"
+                        android:textColor="@color/accent_cyan"
+                        android:textSize="12sp"
+                        android:padding="6dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crafted with ❤️ by Karthik Mohan"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="6dp"
+                    android:alpha="0.6"/>
+            </LinearLayout>
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

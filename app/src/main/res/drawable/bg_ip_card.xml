@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- IP address card with gradient fill and glowing purple border -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="linear"
+        android:angle="135"
+        android:startColor="#1C1B35"
+        android:endColor="#22204A"/>
+    <corners android:radius="20dp"/>
+    <stroke android:width="2dp" android:color="#7C5FFF"/>
+</shape>
