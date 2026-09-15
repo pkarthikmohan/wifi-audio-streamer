@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ── Core Dark Palette ─────────────────────────────── -->
+    <color name="bg_dark">#0A0A14</color>
+    <color name="dark_surface">#131224</color>
+    <color name="dark_card">#1C1B35</color>
+    <color name="dark_elevated">#232147</color>
+    <color name="dark_border">#2E2C5A</color>
+
+    <!-- ── Accent Colors ─────────────────────────────────── -->
+    <color name="accent_purple">#7C5FFF</color>
+    <color name="accent_purple_dim">#5B44CC</color>
+    <color name="accent_cyan">#00D4FF</color>
+    <color name="accent_green">#39E5A0</color>
+    <color name="accent_red">#FF4D6B</color>
+
+    <!-- ── Text ──────────────────────────────────────────── -->
+    <color name="text_primary">#E8E6FF</color>
+    <color name="text_secondary">#8A88B0</color>
+
+    <!-- ── Material3 role aliases (required by theme) ────── -->
+    <color name="primary">@color/accent_purple</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="primaryContainer">@color/dark_elevated</color>
+    <color name="onPrimaryContainer">@color/text_primary</color>
+    <color name="secondary">@color/accent_cyan</color>
+    <color name="onSecondary">#000000</color>
+    <color name="secondaryContainer">@color/dark_surface</color>
+    <color name="onSecondaryContainer">@color/text_primary</color>
+    <color name="error">@color/accent_red</color>
+    <color name="surfaceVariant">@color/dark_card</color>
+    <color name="onSurface">@color/text_primary</color>
+    <color name="onSurfaceVariant">@color/text_secondary</color>
+    <color name="success_container">#1A3D2E</color>
+    <color name="on_success_container">@color/accent_green</color>
+
+    <!-- ── Kept for any residual references ─────────────── -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    
-    <color name="primary">#6750A4</color>
-    <color name="onPrimary">#FFFFFF</color>
-    <color name="primaryContainer">#EADDFF</color>
-    <color name="onPrimaryContainer">#21005D</color>
-    <color name="secondary">#625B71</color>
-    <color name="onSecondary">#FFFFFF</color>
-    <color name="secondaryContainer">#E8DEF8</color>
-    <color name="onSecondaryContainer">#1D192B</color>
-    <color name="background">#FFFBFE</color>
-    <color name="onBackground">#1C1B1F</color>
-    <color name="surface">#FFFBFE</color>
-    <color name="surfaceVariant">#E7E0EC</color>
-    <color name="onSurface">#1C1B1F</color>
-    <color name="onSurfaceVariant">#49454F</color>
-    <color name="error">#B3261E</color>
-    <color name="success_container">#C4EED0</color>
-    <color name="on_success_container">#00210E</color>
 </resources>

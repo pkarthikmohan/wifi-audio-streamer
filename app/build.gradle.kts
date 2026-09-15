@@ -44,4 +44,7 @@ dependencies {
     
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    // ZXing: QR code generation (offline, no internet needed)
+    implementation("com.google.zxing:core:3.5.3")
 }
